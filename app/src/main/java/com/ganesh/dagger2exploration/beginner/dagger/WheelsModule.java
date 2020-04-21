@@ -15,7 +15,7 @@ import dagger.Provides;
  * if we need some instance variables in methods then we can't make em static
  */
 @Module
-public class WheelsModule {
+public abstract class WheelsModule {
 
     @Provides
     static Rims provideRims() {
