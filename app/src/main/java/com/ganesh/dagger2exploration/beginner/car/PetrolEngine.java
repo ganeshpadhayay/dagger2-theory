@@ -6,7 +6,6 @@ import com.ganesh.dagger2exploration.beginner.dagger.EngineCapacity;
 import com.ganesh.dagger2exploration.beginner.dagger.HorsePower;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
 public class PetrolEngine implements Engine {
 
