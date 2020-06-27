@@ -10,7 +10,7 @@ import javax.inject.Inject
 class MainActivity : AppCompatActivity() {
 
     @Inject
-    lateinit var car: Car    //this is called field injection but you can't inject private fields so these fiels can't be final or private
+    lateinit var car: Car    //this is called field injection but you can't inject private fields so these fields can't be final or private
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

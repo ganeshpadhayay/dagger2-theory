@@ -7,12 +7,11 @@ import com.ganesh.dagger2exploration.beginner.car.Wheels;
 import dagger.Module;
 import dagger.Provides;
 
-
 /***
  * Here is a little improvement trick, if these provides methods are not dependent on any instance variable of this module class
- * then we can make em static so that whole class does not need to be instantiated and these methods can be called directly
+ * then we can make them static so that whole class does not need to be instantiated and these methods can be called directly
  *
- * if we need some instance variables in methods then we can't make em static
+ * if we need some instance variables in methods then we can't make them static
  */
 @Module
 public abstract class WheelsModule {

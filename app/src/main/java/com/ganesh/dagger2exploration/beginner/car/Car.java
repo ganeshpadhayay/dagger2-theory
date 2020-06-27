@@ -7,7 +7,7 @@ import javax.inject.Inject;
 public class Car {
     private static final String TAG = "Car";
 
-    //we could have field injected these too but then we would not have been able to make em private so constructor injection is fine here
+    //we could have field injected these too but then we would not have been able to make them private so constructor injection is fine here
     private Engine engine;
     private Wheels wheels;
     private Seats seats;
