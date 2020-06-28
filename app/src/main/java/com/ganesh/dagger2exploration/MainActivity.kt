@@ -20,9 +20,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         var component: ActivityComponent =
-            (application as ExampleApp).appComponent.getActivityComponent(
-                DieselEngineModule(120)
-            )
+            (application as ExampleApp).appComponent.activityComponentBuilder.horsePower(120).engineCapacity(1400).build()
         component.inject(this)
 
         car1.drive()
