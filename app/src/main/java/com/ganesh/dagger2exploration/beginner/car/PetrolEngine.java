@@ -12,7 +12,7 @@ public class PetrolEngine implements Engine {
     private static final String TAG = "Car";
 
     private int horsePower;
-    private int engineCapacity;             //we will get the same value for this also because for dagger all ints are same
+    private int engineCapacity;
 
     @Inject
     public PetrolEngine(@HorsePower int horsePower, @EngineCapacity int engineCapacity) {
