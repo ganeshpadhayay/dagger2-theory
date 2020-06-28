@@ -12,14 +12,17 @@ public class Car {
     private Wheels wheels;
     private Seats seats;
 
+    private Driver driver;
+
     @Inject
     Remote remote;
 
     @Inject
-    public Car(Engine engine, Wheels wheels, Seats seats) {
+    public Car(Driver driver, Engine engine, Wheels wheels, Seats seats) {
         this.engine = engine;
         this.wheels = wheels;
         this.seats = seats;
+        this.driver = driver;
     }
 
     //this is method injection and we rarely use this and also it is used when we need to pass our just created object to some other class
@@ -37,7 +40,7 @@ public class Car {
 
     public void drive() {
         engine.start();
-        Log.d(TAG, "driving...");
+        Log.d(TAG, driver + "is driving..." + this);
     }
 }
 

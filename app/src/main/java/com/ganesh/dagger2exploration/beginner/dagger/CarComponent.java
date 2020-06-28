@@ -3,11 +3,12 @@ package com.ganesh.dagger2exploration.beginner.dagger;
 import com.ganesh.dagger2exploration.MainActivity;
 import com.ganesh.dagger2exploration.beginner.car.Car;
 
-import javax.inject.Named;
+import javax.inject.Singleton;
 
 import dagger.BindsInstance;
 import dagger.Component;
 
+@Singleton
 @Component(modules = {WheelsModule.class, PetrolEngineModule.class})
 public interface CarComponent {
 

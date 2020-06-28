@@ -10,7 +10,10 @@ import javax.inject.Inject
 class MainActivity : AppCompatActivity() {
 
     @Inject
-    lateinit var car: Car    //this is called field injection but you can't inject private fields so these fields can't be final or private
+    lateinit var car1: Car    //this is called field injection but you can't inject private fields so these fields can't be final or private
+
+    @Inject
+    lateinit var car2: Car
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,7 +24,10 @@ class MainActivity : AppCompatActivity() {
             .engineCapacity(1400)
             .build()
         carComponent.inject(this)
-        car.drive()
+
+        //both these cars will have a same driver as that is singleton but if we create two different components then driver will be different
+        car1.drive()
+        car2.drive()
     }
 }
 
@@ -36,7 +42,6 @@ class MainActivity : AppCompatActivity() {
 //Also, we need to instantiate the module from here which needs this argument injection, DieselEngineModule in our case
 
 //Using @Component.Builder and BindsInstance, it is the preferred way as this way we can use
-
 
 
 //Had we not made all the methods of WheelsModule not static it would have appeared as a stricken module in the DaggerAppComponent builder
