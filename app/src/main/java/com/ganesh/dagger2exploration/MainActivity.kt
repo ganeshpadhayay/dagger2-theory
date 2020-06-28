@@ -3,8 +3,8 @@ package com.ganesh.dagger2exploration
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.ganesh.dagger2exploration.beginner.car.Car
-import com.ganesh.dagger2exploration.beginner.dagger.CarComponent
-import com.ganesh.dagger2exploration.beginner.dagger.DaggerCarComponent
+import com.ganesh.dagger2exploration.beginner.dagger.ActivityComponent
+import com.ganesh.dagger2exploration.beginner.dagger.DaggerActivityComponent
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
@@ -19,11 +19,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val carComponent: CarComponent = DaggerCarComponent.builder()
-            .horsePower(150)
+        //we have moved this to application class so that only one component can be used through out the app
+//        val carComponent: CarComponent = DaggerCarComponent.builder()
+//            .horsePower(150)
+//            .engineCapacity(1400)
+//            .build()
+
+        var component: ActivityComponent = DaggerActivityComponent.builder()
+            .horsePower(140)
             .engineCapacity(1400)
-            .build()
-        carComponent.inject(this)
+            .appComponent((application as ExampleApp).appComponent)
+            .build();
+        component.inject(this)
 
         //both these cars will have a same driver as that is singleton but if we create two different components then driver will be different
         car1.drive()
@@ -46,3 +53,5 @@ class MainActivity : AppCompatActivity() {
 
 //Had we not made all the methods of WheelsModule not static it would have appeared as a stricken module in the DaggerAppComponent builder
 //So, it is preferred to make all the module's method as static and module class should be abstract
+
+//when we rotate the device then a new component will be created and then driver won't be a singleton

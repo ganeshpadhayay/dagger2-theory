@@ -3,14 +3,12 @@ package com.ganesh.dagger2exploration.beginner.dagger;
 import com.ganesh.dagger2exploration.MainActivity;
 import com.ganesh.dagger2exploration.beginner.car.Car;
 
-import javax.inject.Singleton;
-
 import dagger.BindsInstance;
 import dagger.Component;
 
-@Singleton
-@Component(modules = {WheelsModule.class, PetrolEngineModule.class})
-public interface CarComponent {
+@PerActivity
+@Component(dependencies = AppComponent.class, modules = {WheelsModule.class, PetrolEngineModule.class})
+public interface ActivityComponent {
 
     Car getCar();             //no need for this if we are field injecting car
 
@@ -28,7 +26,9 @@ public interface CarComponent {
         @BindsInstance
         Builder engineCapacity(@EngineCapacity int engineCapacity);
 
-        CarComponent build();
+        Builder appComponent(AppComponent component);
+
+        ActivityComponent build();
 
     }
 
