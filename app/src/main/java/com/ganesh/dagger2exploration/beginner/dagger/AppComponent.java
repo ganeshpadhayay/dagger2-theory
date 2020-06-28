@@ -8,7 +8,10 @@ import dagger.Component;
 @Component(modules = DriverModule.class)
 public interface AppComponent {
 
-//    ActivityComponent getActivityComponent(DieselEngineModule dieselEngineModule);
+    ActivityComponent.Factory getActivityComponentFactory();
 
-    ActivityComponent.Builder getActivityComponentBuilder();
+    @Component.Factory
+    interface Factory{
+        AppComponent create(DriverModule driverModule);
+    }
 }

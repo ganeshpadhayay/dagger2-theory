@@ -14,17 +14,22 @@ public interface ActivityComponent {
 
     void inject(MainActivity mainActivity);
 
-    @Subcomponent.Builder
-    interface Builder {
+//    @Subcomponent.Builder
+//    interface Builder {
+//
+//        Builder horsePower(@BindsInstance @HorsePower int horsePower);
+//
+//        @BindsInstance
+//        Builder engineCapacity(@EngineCapacity int engineCapacity);
+//
+//        ActivityComponent build();
+//
+//    }
 
-        @BindsInstance
-        Builder horsePower(@HorsePower int horsePower);
-
-        @BindsInstance
-        Builder engineCapacity(@EngineCapacity int engineCapacity);
-
-        ActivityComponent build();
-
+    //from dagger 2.22 we have a factory method in place of builder
+    @Subcomponent.Factory
+    interface Factory {
+        ActivityComponent create(@BindsInstance @HorsePower int horsePower, @BindsInstance @EngineCapacity int engineCapacity);
     }
 
 }
