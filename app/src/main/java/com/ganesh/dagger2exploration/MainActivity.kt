@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.ganesh.dagger2exploration.beginner.car.Car
 import com.ganesh.dagger2exploration.beginner.dagger.ActivityComponent
-import com.ganesh.dagger2exploration.beginner.dagger.DieselEngineModule
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
